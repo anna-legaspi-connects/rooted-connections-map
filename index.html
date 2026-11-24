@@ -262,7 +262,11 @@
 
   <script>
     function openModal(imageSrc, title, owner, location) {
-      document.getElementById('modalImage').src = imageSrc;
+      const fullUrl = 'https://map.anna-legaspi-connects.co.uk/' + encodeURI(imageSrc);
+      const optimizedModalUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(fullUrl) + '&w=1000&q=85&output=webp';
+      
+      document.getElementById('modalImage').src = '';
+      document.getElementById('modalImage').src = optimizedModalUrl;
 
       const infoHTML = `
         <h2 style="margin: 10px 0 5px; color: #ffffff;">${title}</h2>
@@ -276,6 +280,7 @@
 
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
+      document.getElementById('modalImage').src = '';
     }
   </script>
 
